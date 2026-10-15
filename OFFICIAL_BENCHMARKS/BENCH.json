@@ -1,0 +1,986 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "CINDER",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARTIST_TOOLS\\CINDER\\UPSTREAM_CLONE",
+    "git": {
+      "head": "f90f332d1a4d453282c76435f3401271f25922f9",
+      "url": "https://github.com/cinder/Cinder",
+      "branch": "master",
+      "committed_at": "2026-03-20T18:19:53-04:00"
+    }
+  },
+  "metrics": {
+    "files_total": 6584,
+    "source_files_scanned": 2934,
+    "lines_of_code": 940335,
+    "languages": {
+      ".h": 996,
+      ".hpp": 829,
+      ".cpp": 577,
+      ".png": 568,
+      ".c": 298,
+      ".xml": 273,
+      ".plist": 250,
+      ".pbxproj": 250,
+      ".pch": 247,
+      ".vcxproj": 177,
+      ".filters": 176,
+      ".sln": 175,
+      ".gradle": 157,
+      ".rc": 154,
+      ".inl": 132
+    }
+  },
+  "licence": {
+    "spdx": "UNKNOWN",
+    "class": "C",
+    "source_file": "COPYING",
+    "redistribution_allowed": false
+  },
+  "dependencies": {
+    "count": 10,
+    "unique": 9,
+    "by_ecosystem": {
+      "native": 5,
+      "npm": 5
+    },
+    "list": [
+      {
+        "ecosystem": "native",
+        "name": "cinder",
+        "version": "",
+        "source_file": "test/CMake/TestApp/CMakeLists.txt",
+        "raw": "find_package( cinder"
+      },
+      {
+        "ecosystem": "native",
+        "name": "Wayland",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "pkg_check_modules(Wayland"
+      },
+      {
+        "ecosystem": "native",
+        "name": "EpollShim",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "find_package(EpollShim"
+      },
+      {
+        "ecosystem": "native",
+        "name": "X11",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "find_package(X11"
+      },
+      {
+        "ecosystem": "npm",
+        "name": "gulp",
+        "version": "3.9.0",
+        "source_file": "docs/stylesrc/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "gulp-stylus",
+        "version": "2.0.6",
+        "source_file": "docs/stylesrc/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "nib",
+        "version": "1.1.0",
+        "source_file": "docs/stylesrc/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "gulp-filter",
+        "version": "3.0.0",
+        "source_file": "docs/stylesrc/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "gulp-concat",
+        "version": "2.6.0",
+        "source_file": "docs/stylesrc/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "native",
+        "name": "cinder",
+        "version": "",
+        "source_file": "blocks/__AppTemplates/__Foundation/linux_cmake/CMakeLists.txt",
+        "raw": "find_package( cinder"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 1788,
+    "files_with_findings": 1628,
+    "severity": {
+      "high": 54,
+      "medium": 5,
+      "low": 1729
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 7,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "src/zlib/inflate.c",
+            "line": 433,
+            "cwe": "CWE-327",
+            "snippet": "#  define CRC4(check, word) \\"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/glnames.py",
+            "line": 1465,
+            "cwe": "CWE-327",
+            "snippet": "aininitialarabic;FECB"
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/ftobjs.c",
+            "line": 67,
+            "cwe": "CWE-327",
+            "snippet": "/* this reason, we put the MD5 stuff into the `FT_' namespace.       */"
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/md5.c",
+            "line": 3,
+            "cwe": "CWE-327",
+            "snippet": "* MD5 Message-Digest Algorithm (RFC 1321)."
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/md5.h",
+            "line": 3,
+            "cwe": "CWE-327",
+            "snippet": "* MD5 Message-Digest Algorithm (RFC 1321)."
+          },
+          {
+            "severity": "high",
+            "file": "include/tinyexr/tinyexr.h",
+            "line": 2187,
+            "cwe": "CWE-327",
+            "snippet": "const int HUF_DECBITS = 14;  // decoding bit size (>= 8)"
+          },
+          {
+            "severity": "medium",
+            "file": "include/cinder/Rand.h",
+            "line": 243,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 mBase;"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 51,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "tools/scripts/packageRelease.py",
+            "line": 59,
+            "cwe": "CWE-78",
+            "snippet": "os.system( \"git clone --recursive --depth 1 -b master \" + fileUrl + \" ..\" + os.sep + \"cinder_temp\" )"
+          },
+          {
+            "severity": "high",
+            "file": "tools/scripts/retargetVSProjects.py",
+            "line": 26,
+            "cwe": "CWE-78",
+            "snippet": "# os.system(devenvCommand)"
+          },
+          {
+            "severity": "high",
+            "file": "tools/scripts/walkDirs.py",
+            "line": 15,
+            "cwe": "CWE-78",
+            "snippet": "os.system( s )"
+          },
+          {
+            "severity": "high",
+            "file": "test/_audio/AudioTests/src/ParamTest.cpp",
+            "line": 165,
+            "cwe": "CWE-95",
+            "snippet": "param->eval( currTime, audioBuffer.getData(), audioBuffer.getSize(), sampleRate );"
+          },
+          {
+            "severity": "high",
+            "file": "src/zlib/gzlib.c",
+            "line": 59,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buf, \"unknown win32 error (%ld)\", error);"
+          },
+          {
+            "severity": "high",
+            "file": "src/zlib/gzwrite.c",
+            "line": 396,
+            "cwe": "CWE-120",
+            "snippet": "(void)vsprintf(next, format, va);"
+          },
+          {
+            "severity": "high",
+            "file": "src/zlib/zlib.h",
+            "line": 1481,
+            "cwe": "CWE-120",
+            "snippet": "zlib was compiled with the insecure functions sprintf() or vsprintf(),"
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/analysis.c",
+            "line": 75,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buffer,\"%s_%d.m\",base,i);"
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/envelope.c",
+            "line": 301,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buf,\"delL%d\",m);"
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/floor1.c",
+            "line": 907,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buffer,\"line_%dx%ld_class%d.vqd\","
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/info.c",
+            "line": 75,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(vc->user_comments[vc->comments], comment);"
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/mapping0.c",
+            "line": 635,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buf,\"maskI%c%d\",i?'R':'L',k);"
+          },
+          {
+            "severity": "high",
+            "file": "src/oggvorbis/vorbis/res0.c",
+            "line": 99,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(buffer,\"res_sub%d_part%d_pass%d.vqd\",look->submap,j,k);"
+          },
+          {
+            "severity": "high",
+            "file": "src/imgui/imgui_impl_opengl3.cpp",
+            "line": 389,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(bd->GlslVersionString, glsl_version);"
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/cocoa_joystick.m",
+            "line": 175,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(guid, \"03000000%02x%02x0000%02x%02x0000%02x%02x0000\","
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/init.c",
+            "line": 235,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(result, source);"
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/linux_joystick.c",
+            "line": 176,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(guid, \"%02x%02x0000%02x%02x0000%02x%02x0000%02x%02x0000\","
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/win32_joystick.c",
+            "line": 455,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(guid, \"03000000%02x%02x0000%02x%02x000000000000\","
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/wl_window.c",
+            "line": 122,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(name, path);"
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/x11_window.c",
+            "line": 1039,
+            "cwe": "CWE-120",
+            "snippet": "strcat(string, data);"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/glnames.py",
+            "line": 5356,
+            "cwe": "CWE-95",
+            "snippet": "dict.add( agl_glyphs[g], eval( \"0x\" + agl_values[g] ) )"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/ftrandom/ftrandom.c",
+            "line": 523,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( buffer, \"%s/test%d\", results_dir, test_num++ );"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/raster/ftraster.c",
+            "line": 22,
+            "cwe": "CWE-78",
+            "snippet": "/* put the files `ftimage.h' and `ftmisc.h' into the $(incdir)           */"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/bdf/bdflib.c",
+            "line": 1825,
+            "cwe": "CWE-120",
+            "snippet": "ft_sprintf( nbuf, \"%hd\", p->font->bbx.ascent );"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/autofit/afhints.c",
+            "line": 235,
+            "cwe": "CWE-120",
+            "snippet": "ft_sprintf( p, \"%d\", idx );"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 317,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "tools/scripts/retargetVSProjects.py",
+            "line": 59,
+            "cwe": "CWE-",
+            "snippet": "# TODO: clean up temp files from devenv.exe"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/EffectsAudioUnitTest/src/EffectsAudioUnitTestApp.cpp",
+            "line": 84,
+            "cwe": "CWE-",
+            "snippet": "CI_LOG_E( \"TODO: implement test\" );"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/DeviceTest.cpp",
+            "line": 44,
+            "cwe": "CWE-",
+            "snippet": "// TODO: show this in the GUI"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/NodeEffectsTest.cpp",
+            "line": 93,
+            "cwe": "CWE-",
+            "snippet": "// TODO: move to NodeTest"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/ParamTest.cpp",
+            "line": 156,
+            "cwe": "CWE-",
+            "snippet": "// TODO: formalize once there is an offline audio context and OutputFileNode."
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/SamplePlayerTest.cpp",
+            "line": 35,
+            "cwe": "CWE-",
+            "snippet": "// TODO: make a runtime bool and move this to makeNodes() method that can be triggered from gui"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/SpectralTest.cpp",
+            "line": 12,
+            "cwe": "CWE-",
+            "snippet": "// TODO: make these runtime configurable"
+          },
+          {
+            "severity": "low",
+            "file": "test/_audio/AudioTests/src/WaveTableTest.cpp",
+            "line": 155,
+            "cwe": "CWE-",
+            "snippet": "// TODO: add to UI"
+          },
+          {
+            "severity": "low",
+            "file": "test/unit/src/FileWatcherTest.cpp",
+            "line": 17,
+            "cwe": "CWE-",
+            "snippet": "// TODO: remove this path, once std::filesystem is available accross the board"
+          },
+          {
+            "severity": "low",
+            "file": "test/unit/src/TestMain.cpp",
+            "line": 16,
+            "cwe": "CWE-",
+            "snippet": "* FIXME:"
+          },
+          {
+            "severity": "low",
+            "file": "test/unit/src/audio/FftUnit.cpp",
+            "line": 3,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: OOURA roundtrip FFT seems to be broken on windows for sizeFft = 4 (https://github.com/cinder/Cinder/issues/1263)"
+          },
+          {
+            "severity": "low",
+            "file": "test/iosAppTest/src/iosAppTestApp.cpp",
+            "line": 147,
+            "cwe": "CWE-",
+            "snippet": "//\tsettings->enableHighDensityDisplay( false ); // FIXME: currently doesn't do anything"
+          },
+          {
+            "severity": "low",
+            "file": "test/AppTest/src/AppTestApp.cpp",
+            "line": 45,
+            "cwe": "CWE-",
+            "snippet": "//\tsettings->setTitle( \"Blarg\" ); // FIXME: seems broken on mac, but did it ever work?"
+          },
+          {
+            "severity": "low",
+            "file": "src/zlib/zlib.h",
+            "line": 1779,
+            "cwe": "CWE-",
+            "snippet": "/* various hacks, don't look :) */"
+          },
+          {
+            "severity": "low",
+            "file": "src/zlib/zutil.c",
+            "line": 198,
+            "cwe": "CWE-",
+            "snippet": "* protected from concurrent access. This hack doesn't work anyway on"
+          },
+          {
+            "severity": "low",
+            "file": "src/r8brain/CDSPFIRFilter.h",
+            "line": 62,
+            "cwe": "CWE-",
+            "snippet": "// TODO: test on windows"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/backends.h",
+            "line": 52,
+            "cwe": "CWE-",
+            "snippet": "float lessthan;     /* encode-only config setting hacks for libvorbis */"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/floor1.c",
+            "line": 920,
+            "cwe": "CWE-",
+            "snippet": "/* hack to allow training with 'bad' books */"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/lsp.c",
+            "line": 228,
+            "cwe": "CWE-",
+            "snippet": "if(qi&0xffff0000){ /* checks for 1.xxxxxxxxxxxxxxxx */"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/mapping0.c",
+            "line": 67,
+            "cwe": "CWE-",
+            "snippet": "/* another 'we meant to do it this way' hack...  up to beta 4, we"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/res0.c",
+            "line": 194,
+            "cwe": "CWE-",
+            "snippet": "/* yes, this is a minor hack due to not thinking ahead */"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/vorbisfile.c",
+            "line": 672,
+            "cwe": "CWE-",
+            "snippet": "date (seek and read both use this.  seek uses a special hack with"
+          },
+          {
+            "severity": "low",
+            "file": "src/jsoncpp/jsoncpp.cpp",
+            "line": 720,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Help the compiler do the div and mod at compile time or get rid of them."
+          },
+          {
+            "severity": "low",
+            "file": "src/imgui/imgui_draw.cpp",
+            "line": 14,
+            "cwe": "CWE-",
+            "snippet": "// [SECTION] Helpers ShadeVertsXXX functions"
+          },
+          {
+            "severity": "low",
+            "file": "src/imgui/imgui_freetype.cpp",
+            "line": 19,
+            "cwe": "CWE-",
+            "snippet": "//  2021/01/26: simplified integration by using '#define IMGUI_ENABLE_FREETYPE'. renamed ImGuiFreeType::XXX flags to ImGuiFreeTypeBuilderFlags_XXX for consistency with other API. r"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "docs/libs/markdown/__main__.py",
+            "line": 47,
+            "cwe": "CWE-1188",
+            "snippet": "action='store_false', default=True,"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 1412,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "test/_opengl/TransformFeedbackIntro/src/TransformFeedbackIntroApp.cpp",
+            "line": 14,
+            "cwe": "CWE-319",
+            "snippet": "// This sample is based off a sample from the website http://open.gl/feedback ."
+          },
+          {
+            "severity": "low",
+            "file": "test/unit/src/Utilities.cpp",
+            "line": 203,
+            "cwe": "CWE-319",
+            "snippet": "string s( \"http://libcinder.org\" );"
+          },
+          {
+            "severity": "low",
+            "file": "test/Linux/PlatformTest/src/PlatformTestApp.cpp",
+            "line": 36,
+            "cwe": "CWE-319",
+            "snippet": "platform->launchWebBrowser( Url( \"http://www.amazon.com\" ) );"
+          },
+          {
+            "severity": "low",
+            "file": "test/Linux/LoadUrl/src/LoadUrlApp.cpp",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "\"http://www.amazon.com\","
+          },
+          {
+            "severity": "low",
+            "file": "test/Linux/GstPlayerRefactorTest/src/GstPlayerTestApp.cpp",
+            "line": 97,
+            "cwe": "CWE-319",
+            "snippet": "mReloadPaths.push_back( \"http://pdl.warnerbros.com/wbol/us/dd/med/northbynorthwest/quicktime_page/nbnf_airplane_explosion_qt_500.mov\" );"
+          },
+          {
+            "severity": "low",
+            "file": "test/iPhoneTestGl/src/TestApp.cpp",
+            "line": 41,
+            "cwe": "CWE-319",
+            "snippet": "//\tmTex = gl::Texture( loadImage( loadUrl( Url( \"http://images.apple.com/home/images/hero_imac.jpg\" ) ) ) );"
+          },
+          {
+            "severity": "low",
+            "file": "test/Android/LaunchWebBrowser/src/LaunchWebBrowser.cpp",
+            "line": 28,
+            "cwe": "CWE-319",
+            "snippet": "launchWebBrowser( Url( \"http://libcinder.org\" ) );"
+          },
+          {
+            "severity": "low",
+            "file": "src/zlib/deflate.c",
+            "line": 40,
+            "cwe": "CWE-319",
+            "snippet": "*      Available in http://tools.ietf.org/html/rfc1951"
+          },
+          {
+            "severity": "low",
+            "file": "src/zlib/zlib.h",
+            "line": 27,
+            "cwe": "CWE-319",
+            "snippet": "Comments) 1950 to 1952 in the files http://tools.ietf.org/html/rfc1950"
+          },
+          {
+            "severity": "low",
+            "file": "src/r8brain/CDSPRealFFT.h",
+            "line": 35,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html"
+          },
+          {
+            "severity": "low",
+            "file": "src/r8brain/fft4g.h",
+            "line": 10,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html"
+          },
+          {
+            "severity": "low",
+            "file": "src/r8brain/r8bbase.h",
+            "line": 148,
+            "cwe": "CWE-319",
+            "snippet": "*  * http://www.martinic.com/combov/ Combo Model V VSTi instrument"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/analysis.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/backends.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/bitrate.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/bitrate.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/block.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/codebook.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/codebook.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/codec_internal.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/envelope.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/envelope.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/floor0.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/floor1.c",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          },
+          {
+            "severity": "low",
+            "file": "src/oggvorbis/vorbis/highlevel.h",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "* by the Xiph.Org Foundation http://www.xiph.org/                  *"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 10,
+    "files_with_findings": 10,
+    "severity": {
+      "high": 1,
+      "medium": 2,
+      "low": 7
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "docs/libs/pystache/parsed.py",
+            "line": 9,
+            "cwe": "CWE-1336",
+            "snippet": "class ParsedTemplate(object):"
+          },
+          {
+            "severity": "medium",
+            "file": "docs/libs/pystache/parser.py",
+            "line": 263,
+            "cwe": "CWE-1336",
+            "snippet": "parsed_template = ParsedTemplate()"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "docs/htmlsrc/_assets/js/jquery.js",
+            "line": 7960,
+            "cwe": "CWE-95",
+            "snippet": "while ( (match = rheaders.exec( responseHeadersString )) ) {"
+          }
+        ]
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 6,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "src/cinder/ImageSourceFileWic.cpp",
+            "line": 424,
+            "cwe": "CWE-",
+            "snippet": "// Chroma channels - convert to RGB"
+          },
+          {
+            "severity": "low",
+            "file": "samples/_opengl/PostProcessingAA/assets/SMAA.h",
+            "line": 82,
+            "cwe": "CWE-",
+            "snippet": "*   chroma-only edges."
+          },
+          {
+            "severity": "low",
+            "file": "samples/_opengl/DeferredShadingAdvanced/src/DeferredShadingAdvancedApp.cpp",
+            "line": 1048,
+            "cwe": "CWE-",
+            "snippet": "* This pass applies chromatic aberration, brightness, saturation, contrast, and intensity"
+          },
+          {
+            "severity": "low",
+            "file": "include/freetype/ftdriver.h",
+            "line": 230,
+            "cwe": "CWE-",
+            "snippet": "*   Monochromatic rendering, exclusively used in the early days of"
+          },
+          {
+            "severity": "low",
+            "file": "include/EGL-Registry/EGL/eglext.h",
+            "line": 734,
+            "cwe": "CWE-",
+            "snippet": "#define EGL_YUV_CHROMA_HORIZONTAL_SITING_HINT_EXT 0x327D"
+          },
+          {
+            "severity": "low",
+            "file": "include/ANGLE/EGL/eglext.h",
+            "line": 527,
+            "cwe": "CWE-",
+            "snippet": "#define EGL_YUV_CHROMA_HORIZONTAL_SITING_HINT_EXT 0x327D"
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "include/cinder/CinderAssert.h",
+            "line": 35,
+            "cwe": "CWE-",
+            "snippet": "// - CI_DISABLE_ASSERTS: disables all asserts, they become no-ops (VERIFY variants still evaluate \\a expr)."
+          }
+        ]
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:155993a2-6c3c-53c9-bc4e-a3a68e7c1b38",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T07:21:39Z",
+      "component": {
+        "type": "application",
+        "name": "CINDER",
+        "version": "f90f332d1a4d",
+        "bom-ref": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+        "purl": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+        "licenses": [
+          {
+            "license": {
+              "id": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "f90f332d1a4d453282c76435f3401271f25922f9"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/cinder/Cinder"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "cinder",
+        "version": "unspecified",
+        "purl": "pkg:generic/cinder",
+        "bom-ref": "native/cinder@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "Wayland",
+        "version": "unspecified",
+        "purl": "pkg:generic/Wayland",
+        "bom-ref": "native/Wayland@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "EpollShim",
+        "version": "unspecified",
+        "purl": "pkg:generic/EpollShim",
+        "bom-ref": "native/EpollShim@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "X11",
+        "version": "unspecified",
+        "purl": "pkg:generic/X11",
+        "bom-ref": "native/X11@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "gulp",
+        "version": "3.9.0",
+        "purl": "pkg:npm/gulp@3.9.0",
+        "bom-ref": "npm/gulp@3.9.0"
+      },
+      {
+        "type": "library",
+        "name": "gulp-stylus",
+        "version": "2.0.6",
+        "purl": "pkg:npm/gulp-stylus@2.0.6",
+        "bom-ref": "npm/gulp-stylus@2.0.6"
+      },
+      {
+        "type": "library",
+        "name": "nib",
+        "version": "1.1.0",
+        "purl": "pkg:npm/nib@1.1.0",
+        "bom-ref": "npm/nib@1.1.0"
+      },
+      {
+        "type": "library",
+        "name": "gulp-filter",
+        "version": "3.0.0",
+        "purl": "pkg:npm/gulp-filter@3.0.0",
+        "bom-ref": "npm/gulp-filter@3.0.0"
+      },
+      {
+        "type": "library",
+        "name": "gulp-concat",
+        "version": "2.6.0",
+        "purl": "pkg:npm/gulp-concat@2.6.0",
+        "bom-ref": "npm/gulp-concat@2.6.0"
+      }
+    ]
+  },
+  "elapsed_seconds": 506.73
+}

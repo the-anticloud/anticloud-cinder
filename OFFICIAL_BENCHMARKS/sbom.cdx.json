@@ -1,0 +1,102 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:155993a2-6c3c-53c9-bc4e-a3a68e7c1b38",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-06T07:21:39Z",
+    "component": {
+      "type": "application",
+      "name": "CINDER",
+      "version": "f90f332d1a4d",
+      "bom-ref": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+      "purl": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+      "licenses": [
+        {
+          "license": {
+            "id": "UNKNOWN"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "f90f332d1a4d453282c76435f3401271f25922f9"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/cinder/Cinder"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "cinder",
+      "version": "unspecified",
+      "purl": "pkg:generic/cinder",
+      "bom-ref": "native/cinder@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "Wayland",
+      "version": "unspecified",
+      "purl": "pkg:generic/Wayland",
+      "bom-ref": "native/Wayland@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "EpollShim",
+      "version": "unspecified",
+      "purl": "pkg:generic/EpollShim",
+      "bom-ref": "native/EpollShim@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "X11",
+      "version": "unspecified",
+      "purl": "pkg:generic/X11",
+      "bom-ref": "native/X11@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "gulp",
+      "version": "3.9.0",
+      "purl": "pkg:npm/gulp@3.9.0",
+      "bom-ref": "npm/gulp@3.9.0"
+    },
+    {
+      "type": "library",
+      "name": "gulp-stylus",
+      "version": "2.0.6",
+      "purl": "pkg:npm/gulp-stylus@2.0.6",
+      "bom-ref": "npm/gulp-stylus@2.0.6"
+    },
+    {
+      "type": "library",
+      "name": "nib",
+      "version": "1.1.0",
+      "purl": "pkg:npm/nib@1.1.0",
+      "bom-ref": "npm/nib@1.1.0"
+    },
+    {
+      "type": "library",
+      "name": "gulp-filter",
+      "version": "3.0.0",
+      "purl": "pkg:npm/gulp-filter@3.0.0",
+      "bom-ref": "npm/gulp-filter@3.0.0"
+    },
+    {
+      "type": "library",
+      "name": "gulp-concat",
+      "version": "2.6.0",
+      "purl": "pkg:npm/gulp-concat@2.6.0",
+      "bom-ref": "npm/gulp-concat@2.6.0"
+    }
+  ]
+}

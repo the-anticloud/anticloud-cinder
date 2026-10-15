@@ -1,0 +1,877 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "CINDER",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARTIST_TOOLS\\CINDER\\UPSTREAM_CLONE",
+    "git": {
+      "head": "f90f332d1a4d453282c76435f3401271f25922f9",
+      "url": "https://github.com/cinder/Cinder",
+      "branch": "master",
+      "committed_at": "2026-03-20T18:19:53-04:00"
+    }
+  },
+  "metrics": {
+    "files_total": 2693,
+    "source_files_scanned": 2283,
+    "lines_of_code": 927734,
+    "languages": {
+      ".hpp": 828,
+      ".h": 783,
+      ".cpp": 302,
+      ".c": 298,
+      ".inl": 132,
+      ".ipp": 78,
+      "(none)": 37,
+      ".xml": 33,
+      ".png": 25,
+      ".a": 25,
+      ".py": 23,
+      ".mm": 18,
+      ".java": 17,
+      ".gradle": 9,
+      ".txt": 8
+    }
+  },
+  "licence": {
+    "spdx": "UNKNOWN",
+    "class": "C",
+    "source_file": "COPYING",
+    "redistribution_allowed": false
+  },
+  "dependencies": {
+    "count": 4,
+    "unique": 4,
+    "by_ecosystem": {
+      "native": 4
+    },
+    "list": [
+      {
+        "ecosystem": "native",
+        "name": "cinder",
+        "version": "",
+        "source_file": "blocks/__AppTemplates/__Foundation/linux_cmake/CMakeLists.txt",
+        "raw": "find_package( cinder"
+      },
+      {
+        "ecosystem": "native",
+        "name": "Wayland",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "pkg_check_modules(Wayland"
+      },
+      {
+        "ecosystem": "native",
+        "name": "EpollShim",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "find_package(EpollShim"
+      },
+      {
+        "ecosystem": "native",
+        "name": "X11",
+        "version": "",
+        "source_file": "src/glfw/src/CMakeLists.txt",
+        "raw": "find_package(X11"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 1623,
+    "files_with_findings": 1484,
+    "severity": {
+      "high": 45,
+      "medium": 5,
+      "low": 1573
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "include/cinder/Rand.h",
+            "line": 243,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 mBase;"
+          },
+          {
+            "severity": "high",
+            "file": "include/tinyexr/tinyexr.h",
+            "line": 2187,
+            "cwe": "CWE-327",
+            "snippet": "const int HUF_DECBITS = 14;  // decoding bit size (>= 8)"
+          },
+          {
+            "severity": "medium",
+            "file": "src/cinder/Rand.cpp",
+            "line": 29,
+            "cwe": "CWE-338",
+            "snippet": "std::mt19937 Rand::sBase( 310u );"
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/ftobjs.c",
+            "line": 67,
+            "cwe": "CWE-327",
+            "snippet": "/* this reason, we put the MD5 stuff into the `FT_' namespace.       */"
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/md5.c",
+            "line": 3,
+            "cwe": "CWE-327",
+            "snippet": "* MD5 Message-Digest Algorithm (RFC 1321)."
+          },
+          {
+            "severity": "medium",
+            "file": "src/freetype/base/md5.h",
+            "line": 3,
+            "cwe": "CWE-327",
+            "snippet": "* MD5 Message-Digest Algorithm (RFC 1321)."
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/glnames.py",
+            "line": 1465,
+            "cwe": "CWE-327",
+            "snippet": "aininitialarabic;FECB"
+          },
+          {
+            "severity": "high",
+            "file": "src/zlib/inflate.c",
+            "line": 433,
+            "cwe": "CWE-327",
+            "snippet": "#  define CRC4(check, word) \\"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 42,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "include/cinder/audio/Param.h",
+            "line": 136,
+            "cwe": "CWE-95",
+            "snippet": "//! \\note If not varying (eval() returns false), the returned pointer will be invalid."
+          },
+          {
+            "severity": "high",
+            "file": "include/imgui/imgui_internal.h",
+            "line": 1268,
+            "cwe": "CWE-120",
+            "snippet": "//   strcpy(my_buf, \"hello\");"
+          },
+          {
+            "severity": "high",
+            "file": "include/msw/zlib/zlib.h",
+            "line": 1131,
+            "cwe": "CWE-120",
+            "snippet": "zlib was compiled with the insecure functions sprintf() or vsprintf()"
+          },
+          {
+            "severity": "high",
+            "file": "include/stb/stb_image_write.h",
+            "line": 616,
+            "cwe": "CWE-120",
+            "snippet": "len = sprintf(buffer, \"EXPOSURE=          1.0000000000000\\n\\n-Y %d +X %d\\n\", y, x);"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/Font.cpp",
+            "line": 1099,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( mMessage, \"%s\", fontName.c_str() );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/JsonTree.cpp",
+            "line": 727,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( mMessage, \"Could not find child: %s for node: %s\", childPath.c_str(), node.getPath().c_str() );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/Path2dStroke.cpp",
+            "line": 161,
+            "cwe": "CWE-95",
+            "snippet": "glm::dvec2 eval( double t ) const"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/Stream.cpp",
+            "line": 787,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( mMessage, \"%s\", fontName.c_str() );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/Xml.cpp",
+            "line": 428,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( mMessage, \"Could not find child: %s for node: %s\", childPath.c_str(), node.getPath().c_str() );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/app/linux/PlatformLinux.cpp",
+            "line": 177,
+            "cwe": "CWE-78",
+            "snippet": "FILE* pipe = popen( cmd.c_str(), \"r\" );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/audio/DelayNode.cpp",
+            "line": 112,
+            "cwe": "CWE-95",
+            "snippet": "if( mParamDelaySeconds.eval() ) {"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/audio/GenNode.cpp",
+            "line": 96,
+            "cwe": "CWE-95",
+            "snippet": "if( mFreq.eval() ) {"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/audio/NodeMath.cpp",
+            "line": 41,
+            "cwe": "CWE-95",
+            "snippet": "if( mParam.eval() ) {"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/audio/PanNode.cpp",
+            "line": 116,
+            "cwe": "CWE-95",
+            "snippet": "if( mPos.eval() ) {"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/audio/Param.cpp",
+            "line": 179,
+            "cwe": "CWE-95",
+            "snippet": "mIsVaryingThisBlock = true; // stays true until there is no more processor and eval() sets this to false."
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/gl/wrapper.cpp",
+            "line": 151,
+            "cwe": "CWE-120",
+            "snippet": "strcpy( strWorkBuff, strVersion + iLength + 1 );"
+          },
+          {
+            "severity": "high",
+            "file": "src/cinder/msw/StackWalker.cpp",
+            "line": 226,
+            "cwe": "CWE-120",
+            "snippet": "#define strcat_s(dst, len, src) strcat(dst, src)"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/autofit/afhints.c",
+            "line": 235,
+            "cwe": "CWE-120",
+            "snippet": "ft_sprintf( p, \"%d\", idx );"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/bdf/bdflib.c",
+            "line": 1825,
+            "cwe": "CWE-120",
+            "snippet": "ft_sprintf( nbuf, \"%hd\", p->font->bbx.ascent );"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/raster/ftraster.c",
+            "line": 22,
+            "cwe": "CWE-78",
+            "snippet": "/* put the files `ftimage.h' and `ftmisc.h' into the $(incdir)           */"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/glnames.py",
+            "line": 5356,
+            "cwe": "CWE-95",
+            "snippet": "dict.add( agl_glyphs[g], eval( \"0x\" + agl_values[g] ) )"
+          },
+          {
+            "severity": "high",
+            "file": "src/freetype/tools/ftrandom/ftrandom.c",
+            "line": 523,
+            "cwe": "CWE-120",
+            "snippet": "sprintf( buffer, \"%s/test%d\", results_dir, test_num++ );"
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/cocoa_joystick.m",
+            "line": 175,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(guid, \"03000000%02x%02x0000%02x%02x0000%02x%02x0000\","
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/init.c",
+            "line": 235,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(result, source);"
+          },
+          {
+            "severity": "high",
+            "file": "src/glfw/src/linux_joystick.c",
+            "line": 176,
+            "cwe": "CWE-120",
+            "snippet": "sprintf(guid, \"%02x%02x0000%02x%02x0000%02x%02x0000%02x%02x0000\","
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 255,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2TimeOfImpact.cpp",
+            "line": 40,
+            "cwe": "CWE-",
+            "snippet": "// TODO_ERIN might not need to return the separation"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Common/b2Math.h",
+            "line": 317,
+            "cwe": "CWE-",
+            "snippet": "/// TODO_ERIN optimize"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Dynamics/b2Body.h",
+            "line": 45,
+            "cwe": "CWE-",
+            "snippet": "// TODO_ERIN"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Dynamics/b2ContactManager.cpp",
+            "line": 197,
+            "cwe": "CWE-",
+            "snippet": "// TODO_ERIN use a hash table to remove a potential bottleneck when both"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Dynamics/Contacts/b2ContactSolver.cpp",
+            "line": 241,
+            "cwe": "CWE-",
+            "snippet": "// TODO_ERIN use deepest?"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Dynamics/Joints/b2GearJoint.cpp",
+            "line": 58,
+            "cwe": "CWE-",
+            "snippet": "// TODO_ERIN there might be some problem with the joint edges in b2Joint."
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Cairo/include/cinder/cairo/Cairo.h",
+            "line": 611,
+            "cwe": "CWE-",
+            "snippet": "// TODO: This stuff needs to be reviewed before we implement."
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Cairo/include/macosx/cairo.h",
+            "line": 924,
+            "cwe": "CWE-",
+            "snippet": "/* XXX: NYI"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Cairo/include/msw/cairo.h",
+            "line": 883,
+            "cwe": "CWE-",
+            "snippet": "/* XXX: NYI"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Clipper/src/clipper.cpp",
+            "line": 1310,
+            "cwe": "CWE-",
+            "snippet": "//todo - needs fixing for open paths"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/TUIO/src/cinder/tuio/Tuio.cpp",
+            "line": 260,
+            "cwe": "CWE-",
+            "snippet": "//! TODO: Need to figure out about \"PastFrameThreshold\", got rid of it."
+          },
+          {
+            "severity": "low",
+            "file": "include/ANGLE/EGL/eglplatform.h",
+            "line": 114,
+            "cwe": "CWE-",
+            "snippet": "// TODO(jmadill): native implementation for OSX"
+          },
+          {
+            "severity": "low",
+            "file": "include/asio/detail/push_options.hpp",
+            "line": 177,
+            "cwe": "CWE-",
+            "snippet": "# pragma warning (disable:4619) // suppress 'there is no warning number XXXX'"
+          },
+          {
+            "severity": "low",
+            "file": "include/asio/detail/win_fd_set_adapter.hpp",
+            "line": 106,
+            "cwe": "CWE-",
+            "snippet": "// the \"struct hack\" to allow the number of descriptors to be varied at"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/Buffer.h",
+            "line": 72,
+            "cwe": "CWE-",
+            "snippet": "//TODO: copy from region of another buffer"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/DataTarget.h",
+            "line": 54,
+            "cwe": "CWE-",
+            "snippet": "//\tBuffer\t\t\t\tmBuffer; // TODO: is this used? if not remove"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/Log.h",
+            "line": 248,
+            "cwe": "CWE-",
+            "snippet": "// TODO: move &&location"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/Plane.h",
+            "line": 66,
+            "cwe": "CWE-",
+            "snippet": "// Hack to define the plane using a different type of Vec3 (required for some types that aren't yet templated)"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/app/android/android_native_app_glue.h",
+            "line": 57,
+            "cwe": "CWE-",
+            "snippet": "*      - activity lifecycle events (e.g. \"pause\", \"resume\"). See APP_CMD_XXX"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/app/android/AppAndroid.h",
+            "line": 143,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Merge this functionality with deferredMain"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/app/cocoa/RendererImplGlCocoaTouch.h",
+            "line": 30,
+            "cwe": "CWE-",
+            "snippet": "cinder::app::RendererGl\t\t\t*mRenderer; // equivalent of a weak_ptr; 'renderer' owns this // TODO: remove, this is unused"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/audio/Buffer.h",
+            "line": 34,
+            "cwe": "CWE-",
+            "snippet": "// TODO: It'd be nice to have a 'BufferView' or similar functionality"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/audio/Context.h",
+            "line": 186,
+            "cwe": "CWE-",
+            "snippet": "static std::unique_ptr<DeviceManager>\tsDeviceManager; // TODO: consider turning DeviceManager into a HardwareContext class"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/audio/FilterNode.h",
+            "line": 31,
+            "cwe": "CWE-",
+            "snippet": "// TODO: add api for setting biquad with arbitrary set of coefficients, similar to pd's [biquad~]"
+          },
+          {
+            "severity": "low",
+            "file": "include/cinder/audio/cocoa/ContextAudioUnit.h",
+            "line": 106,
+            "cwe": "CWE-",
+            "snippet": "// TODO: when stopped / mEnabled = false; kAudioUnitProperty_BypassEffect should be used"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 1318,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Box2D.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2BroadPhase.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2BroadPhase.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2CollideCircle.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2007-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2CollideEdge.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2007-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2CollidePolygon.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2Collision.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2007-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2Collision.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2Distance.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2007-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2Distance.h",
+            "line": 3,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2DynamicTree.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2DynamicTree.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2TimeOfImpact.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2007-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/b2TimeOfImpact.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2ChainShape.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2010 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2ChainShape.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2010 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2CircleShape.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2CircleShape.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2EdgeShape.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2010 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2EdgeShape.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2010 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2PolygonShape.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2PolygonShape.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Collision/Shapes/b2Shape.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Common/b2BlockAllocator.cpp",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          },
+          {
+            "severity": "low",
+            "file": "blocks/Box2D/src/Box2D/Common/b2BlockAllocator.h",
+            "line": 2,
+            "cwe": "CWE-319",
+            "snippet": "* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 6,
+    "files_with_findings": 6,
+    "severity": {
+      "high": 0,
+      "medium": 0,
+      "low": 6
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 5,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "include/ANGLE/EGL/eglext.h",
+            "line": 527,
+            "cwe": "CWE-",
+            "snippet": "#define EGL_YUV_CHROMA_HORIZONTAL_SITING_HINT_EXT 0x327D"
+          },
+          {
+            "severity": "low",
+            "file": "include/EGL-Registry/EGL/eglext.h",
+            "line": 734,
+            "cwe": "CWE-",
+            "snippet": "#define EGL_YUV_CHROMA_HORIZONTAL_SITING_HINT_EXT 0x327D"
+          },
+          {
+            "severity": "low",
+            "file": "include/freetype/ftdriver.h",
+            "line": 230,
+            "cwe": "CWE-",
+            "snippet": "*   Monochromatic rendering, exclusively used in the early days of"
+          },
+          {
+            "severity": "low",
+            "file": "src/cinder/ImageSourceFileWic.cpp",
+            "line": 424,
+            "cwe": "CWE-",
+            "snippet": "// Chroma channels - convert to RGB"
+          },
+          {
+            "severity": "low",
+            "file": "src/imgui/imgui.cpp",
+            "line": 2736,
+            "cwe": "CWE-",
+            "snippet": "const float chroma = r - (g < b ? g : b);"
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "include/cinder/CinderAssert.h",
+            "line": 35,
+            "cwe": "CWE-",
+            "snippet": "// - CI_DISABLE_ASSERTS: disables all asserts, they become no-ops (VERIFY variants still evaluate \\a expr)."
+          }
+        ]
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:155993a2-6c3c-53c9-bc4e-a3a68e7c1b38",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T15:23:29Z",
+      "component": {
+        "type": "application",
+        "name": "CINDER",
+        "version": "f90f332d1a4d",
+        "bom-ref": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+        "purl": "pkg:generic/anticloud/CINDER@f90f332d1a4d",
+        "licenses": [
+          {
+            "license": {
+              "id": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "f90f332d1a4d453282c76435f3401271f25922f9"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/cinder/Cinder"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "cinder",
+        "version": "unspecified",
+        "purl": "pkg:generic/cinder",
+        "bom-ref": "native/cinder@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "Wayland",
+        "version": "unspecified",
+        "purl": "pkg:generic/Wayland",
+        "bom-ref": "native/Wayland@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "EpollShim",
+        "version": "unspecified",
+        "purl": "pkg:generic/EpollShim",
+        "bom-ref": "native/EpollShim@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "X11",
+        "version": "unspecified",
+        "purl": "pkg:generic/X11",
+        "bom-ref": "native/X11@unspecified"
+      }
+    ]
+  },
+  "elapsed_seconds": 999.43
+}
